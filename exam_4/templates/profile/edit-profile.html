@@ -1,0 +1,25 @@
+{% extends 'nav.html' %}
+{% block page_content %}
+    <main>
+
+        <!-- Edit Profile Form -->
+
+        <section id="register">
+            <div class="form">
+                <h2>Edit Profile</h2>
+                <form method="post" action="{% url 'profile edit' %}" class="register-form">
+                    {{ form }}
+                    <button type="submit">Edit</button>
+                    {% csrf_token %}
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+<!-- footer -->
+<footer>
+    <p>@Fruitipedia - SoftUni Team 2023. All rights reserved.</p>
+</footer>
+
+{% endblock %}

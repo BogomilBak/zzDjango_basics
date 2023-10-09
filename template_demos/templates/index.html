@@ -1,0 +1,67 @@
+{% extends 'base/base.html' %}
+{% load filters %}
+{% load tags %}
+
+{% block page_content %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Title</title>
+</head>
+<body>
+HTML Nav:
+<nav>
+    <a href="{% url 'index' %}">Go to home</a>
+
+    <a href="{% url 'redirect to home' %}">Redirect to home</a>
+</nav>
+
+Tag Nav:
+{% app_nav 'index' 'redirect to home' 'about' %}
+
+{{ csrf_token }}
+<h1>
+       Original: {{ title }}: {{ value }}
+</h1>
+<div>
+{% student_info student=student %}
+</div>
+<div>
+{% sample_tag %}
+</div>
+<div>
+{% sample_tag 17 'Doncho' True %}
+</div>
+<div>
+{% sample_tag department='engineering' company='softuni' %}
+</div>
+{% if students %}  
+    {{ students|join:', ' }}
+{% else %}
+    No students
+{% endif %}
+<h3>Pure for</h3>
+<ul>
+    {% for student in students %}
+            <li>{{ student}}</li>
+    {% empty %}
+        <li>No students</li>
+    {% endfor %}
+<h4>for with 'ifchanged'</h4>
+    {% for student in students %}
+        {% ifchanged student %}
+            <li>{{ student}}</li>
+        {% endifchanged %}
+    {% endfor %}
+{{ now|app_style }}
+<div>
+    Odd: {{ values|odd }}
+</div>
+</ul>
+</body>
+</html>
+
+{% endblock %}

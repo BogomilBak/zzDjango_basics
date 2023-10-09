@@ -1,0 +1,1 @@
+SECRET_KEY_HIDDEN = 'django-insecure-g87104r)4t3=r!(1857@0l!eq%l2n+)o1efw=us4qpkc^9d%t6'

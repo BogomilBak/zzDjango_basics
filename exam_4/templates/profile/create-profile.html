@@ -1,0 +1,17 @@
+{% extends 'nav.html' %}
+{% block page_content %}
+    <main>
+        <section id="register">
+            <div class="form">
+                <h2>Create Profile</h2>
+                <form method="post" action="{% url 'profile create' %}" class="register-form">
+                    {{ form }}
+                    <button type="submit">Create</button>
+                    {% csrf_token %}
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+{% endblock %}
